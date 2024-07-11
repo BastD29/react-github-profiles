@@ -10,7 +10,7 @@ const Header: FC = () => {
           <h2>devfinder</h2>
         </Link>
         <Link to="/favorites" className={style["header__link"]}>
-          <h2>Favorites</h2>
+          <h2>Favorites (0)</h2>
         </Link>
       </nav>
     </header>

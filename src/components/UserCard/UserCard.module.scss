@@ -1,0 +1,14 @@
+.user-card {
+  border: solid 1px black;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+
+  &__img {
+    width: 100px;
+    border-radius: 50px;
+  }
+}
