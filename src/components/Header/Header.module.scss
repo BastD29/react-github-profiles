@@ -1,0 +1,11 @@
+.header {
+  padding: 24px;
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    // justify-content: space-between;
+  }
+}

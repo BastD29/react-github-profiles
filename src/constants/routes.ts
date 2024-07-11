@@ -1,4 +1,5 @@
 const HOME = "/";
+const FAVORITES = "/favorites";
 // const USERS = "/users";
 
-export { HOME /* USERS */ };
+export { HOME, FAVORITES /* USERS */ };
