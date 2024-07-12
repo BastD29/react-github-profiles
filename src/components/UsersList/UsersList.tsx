@@ -2,7 +2,8 @@ import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
-import { SAGA_FLOW_NAME } from "../../store/github/sagas2";
+// import { SAGA_FLOW_NAME } from "../../store/github/sagas2";
+import { SAGA_FLOW_NAME } from "../../store/github/sagas3";
 import UserCard from "../UserCard/UserCard";
 import style from "./UsersList.module.scss";
 
