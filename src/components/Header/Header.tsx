@@ -1,8 +1,12 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import style from "./Header.module.scss";
+import { useSelector } from "react-redux";
+import { RootStateType } from "../../store";
 
 const Header: FC = () => {
+  const { favorites } = useSelector((state: RootStateType) => state.favorites);
+
   return (
     <header className={style["header"]}>
       <nav className={style["header__nav"]}>
@@ -10,7 +14,7 @@ const Header: FC = () => {
           <h2>devfinder</h2>
         </Link>
         <Link to="/favorites" className={style["header__link"]}>
-          <h2>Favorites (0)</h2>
+          <h2>Favorites ({favorites?.length})</h2>
         </Link>
       </nav>
     </header>

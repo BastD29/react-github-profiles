@@ -11,4 +11,9 @@
     width: 100px;
     border-radius: 50px;
   }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
 }

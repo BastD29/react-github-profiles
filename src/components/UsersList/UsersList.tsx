@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { RootStateType } from "../../store";
 import { SAGA_FLOW_NAME } from "../../store/github/sagas2";
 import UserCard from "../UserCard/UserCard";
 import style from "./UsersList.module.scss";
@@ -9,12 +9,16 @@ import style from "./UsersList.module.scss";
 const UsersList: FC = () => {
   const dispatch = useDispatch();
   const { error, loading, profiles } = useSelector(
-    (state: RootState) => state.github
+    (state: RootStateType) => state.github
   );
+  const { favorites } = useSelector((state: RootStateType) => state.favorites);
 
   useEffect(() => {
     dispatch({ type: SAGA_FLOW_NAME.GET_GITHUB_PROFILES });
   }, []);
+
+  const isFavorite = (id: number) =>
+    favorites?.some((profile) => profile.id === id);
 
   return (
     <div>
@@ -26,8 +30,11 @@ const UsersList: FC = () => {
       {!loading && !error && profiles && profiles.length > 0 && (
         <ul className={style["users-list"]}>
           {profiles.map((profile) => (
-            // <li key={profile.id}>{profile.login}</li>
-            <UserCard key={profile.id} profile={profile} />
+            <UserCard
+              key={profile.id}
+              profile={profile}
+              isFavorite={isFavorite(profile.id)}
+            />
           ))}
         </ul>
       )}
