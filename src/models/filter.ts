@@ -6,4 +6,6 @@ type FilterStateType = {
   filters: FilterType | null;
 };
 
-export type { FilterType, FilterStateType };
+type FilterPayloadType = { name: string; value: string };
+
+export type { FilterType, FilterStateType, FilterPayloadType };

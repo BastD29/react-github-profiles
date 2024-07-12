@@ -12,7 +12,7 @@ export const SAGA_FLOW_NAME = {
 };
 
 const filters = {
-  q: "bbbb",
+  q: "cccc",
 };
 
 function* getGithubProfiles(): Generator<Effect, void, GithubProfileType[]> {
