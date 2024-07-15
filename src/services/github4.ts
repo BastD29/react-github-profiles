@@ -4,16 +4,16 @@ import { GithubProfileType } from "../models/github";
 
 const getUsers = async (filters: FilterType): Promise<GithubProfileType[]> => {
   try {
-    console.log("filters:", filters);
+    // console.log("filters:", filters);
 
     const queryParams = new URLSearchParams(filters).toString();
-    console.log("queryParams:", queryParams);
+    // console.log("queryParams:", queryParams);
 
     const url = filters.q
       ? `${GITHUB_API_BASE_URL}${SEARCH}${USERS}?${queryParams}`
       : `${GITHUB_API_BASE_URL}${USERS}`;
 
-    console.log("fetched url:", url);
+    // console.log("fetched url:", url);
 
     const response = await fetch(url);
     if (!response.ok) {

@@ -21,7 +21,7 @@ function* getGithubProfiles() {
   try {
     yield put(fetchProfilesStart(true));
     const filters: FilterType | null = yield select(filterSelectors.getFilters);
-    console.log("filters:", filters);
+    // console.log("filters:", filters);
     if (filters && filters.q) {
       yield delay(500); // Debounce the query by 500ms
     }
