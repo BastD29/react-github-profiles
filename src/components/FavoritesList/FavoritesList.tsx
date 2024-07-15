@@ -6,7 +6,7 @@ import style from "./FavoritesList.module.scss";
 
 const FavoritesList: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
-  console.log("favorites:", favorites);
+  // console.log("favorites:", favorites);
 
   const isFavorite = (id: number) =>
     favorites?.some((profile) => profile.id === id);
