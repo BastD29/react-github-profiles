@@ -1,4 +1,4 @@
-import { call, fork, put, select, takeLatest } from "redux-saga/effects";
+import { call, delay, fork, put, select, takeLatest } from "redux-saga/effects";
 import { GithubProfileType } from "../../models/github";
 import { getUsers } from "../../services/github4";
 import {
@@ -22,6 +22,9 @@ function* getGithubProfiles() {
     yield put(fetchProfilesStart(true));
     const filters: FilterType | null = yield select(filterSelectors.getFilters);
     console.log("filters:", filters);
+    if (filters && filters.q) {
+      yield delay(500); // Debounce the query by 500ms
+    }
     const users: GithubProfileType[] = yield call(getUsers, filters || {});
     // const users: GithubProfileType[] = yield call(getUsers, search || {});
     console.log("response:", users);
