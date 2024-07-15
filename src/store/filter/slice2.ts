@@ -1,5 +1,9 @@
 import { PayloadAction, Reducer, createReducer } from "@reduxjs/toolkit";
-import { FilterPayloadType, FilterStateType } from "../../models/filter";
+import {
+  FilterPayloadType,
+  FilterStateType,
+  FilterType,
+} from "../../models/filter";
 import { clearFilter, setFilter } from "./actions2";
 
 const initialState: FilterStateType = {
@@ -22,3 +26,13 @@ export const reducer: Reducer<FilterStateType> = createReducer(
       });
   }
 );
+
+const getFilters = ({
+  filter,
+}: {
+  filter: FilterStateType;
+}): FilterType | null => filter.filters;
+
+export const selectors = {
+  getFilters,
+};

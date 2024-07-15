@@ -1,4 +1,11 @@
-import { Effect, call, fork, put, takeLatest } from "redux-saga/effects";
+import {
+  Effect,
+  call,
+  fork,
+  put,
+  select,
+  takeLatest,
+} from "redux-saga/effects";
 import { GithubProfileType } from "../../models/github";
 import { getUsers } from "../../services/github3";
 import {
@@ -6,21 +13,24 @@ import {
   fetchProfilesStart,
   fetchProfilesSuccess,
 } from "./actions2";
+import { filterSelectors } from "../filter";
+import { FilterType } from "../../models/filter";
 
 export const SAGA_FLOW_NAME = {
   GET_GITHUB_PROFILES: "GET_GITHUB_PROFILES",
 };
 
-const filters = {
-  q: "cccc",
+const search = {
+  q: "aaa",
 };
 
-function* getGithubProfiles(): Generator<Effect, void, GithubProfileType[]> {
+function* getGithubProfiles() {
   try {
     yield put(fetchProfilesStart(true));
-    console.log("filters:", filters);
-
-    const users = yield call(getUsers, filters || {});
+    // console.log("filters:", filters);
+    const filters: FilterType | null = yield select(filterSelectors.getFilters);
+    // const users: GithubProfileType[] = yield call(getUsers, filters || {});
+    const users: GithubProfileType[] = yield call(getUsers, search || {});
     console.log("response:", users);
     yield put(fetchProfilesSuccess(users));
   } catch (error) {
