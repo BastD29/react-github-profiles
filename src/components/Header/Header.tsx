@@ -8,7 +8,7 @@ import style from "./Header.module.scss";
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
   const { filters } = useSelector((state: RootStateType) => state.filter);
-  console.log("filters:", filters);
+  // console.log("filters:", filters);
 
   return (
     <header className={style["header"]}>
