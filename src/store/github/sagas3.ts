@@ -1,13 +1,6 @@
-import {
-  Effect,
-  call,
-  fork,
-  put,
-  select,
-  takeLatest,
-} from "redux-saga/effects";
+import { call, fork, put, select, takeLatest } from "redux-saga/effects";
 import { GithubProfileType } from "../../models/github";
-import { getUsers } from "../../services/github3";
+import { getUsers } from "../../services/github4";
 import {
   fetchProfilesFailure,
   fetchProfilesStart,
@@ -27,7 +20,6 @@ export const SAGA_FLOW_NAME = {
 function* getGithubProfiles() {
   try {
     yield put(fetchProfilesStart(true));
-    // console.log("filters:", filters);
     const filters: FilterType | null = yield select(filterSelectors.getFilters);
     console.log("filters:", filters);
     const users: GithubProfileType[] = yield call(getUsers, filters || {});

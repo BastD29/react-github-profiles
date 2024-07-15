@@ -12,6 +12,8 @@ const UsersList: FC = () => {
   const { error, loading, profiles } = useSelector(
     (state: RootStateType) => state.github
   );
+  console.log("profiles:", profiles);
+
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
 
   useEffect(() => {

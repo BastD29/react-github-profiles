@@ -1,32 +1,34 @@
-import { GITHUB_API_BASE_URL, SEARCH, USERS } from "../constants/endpoints";
-import { FilterType } from "../models/filter";
-import { GithubProfileType } from "../models/github";
-import { GithubApiResponseType } from "../models/service";
+// import { GITHUB_API_BASE_URL, SEARCH, USERS } from "../constants/endpoints";
+// import { FilterType } from "../models/filter";
+// import { GithubProfileType } from "../models/github";
+// import { GithubApiResponseType } from "../models/service";
 
-// getUsers with filters
+// // getUsers with filters
 
-const getUsers = async (filters: FilterType): Promise<GithubProfileType[]> => {
-  try {
-    const queryParams = new URLSearchParams(filters).toString();
-    console.log("queryParams:", queryParams);
+// const getUsers = async (filters: FilterType): Promise<GithubProfileType[]> => {
+//   try {
+//     console.log("filters:", filters);
 
-    const response = await fetch(
-      `${GITHUB_API_BASE_URL}${SEARCH}${USERS}?${queryParams}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch users");
-    }
-    const data: GithubApiResponseType = await response.json();
-    console.log("data from github service:", data);
-    // data from github service: {total_count: 0, incomplete_results: false, items: Array(0)}
+//     const queryParams = new URLSearchParams(filters).toString();
+//     console.log("queryParams:", queryParams);
 
-    const { items } = data;
+//     const response = await fetch(
+//       `${GITHUB_API_BASE_URL}${SEARCH}${USERS}?${queryParams}`
+//     );
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch users");
+//     }
+//     const data: GithubApiResponseType = await response.json();
+//     console.log("data from github service:", data);
+//     // data from github service: {total_count: 0, incomplete_results: false, items: Array(0)}
 
-    return items;
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    throw error;
-  }
-};
+//     const { items } = data;
 
-export { getUsers };
+//     return items;
+//   } catch (error) {
+//     console.error("Error fetching users:", error);
+//     throw error;
+//   }
+// };
+
+// export { getUsers };

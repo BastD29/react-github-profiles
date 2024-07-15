@@ -15,13 +15,16 @@ export const reducer: Reducer<FilterStateType> = createReducer(
   (builder) => {
     builder
       .addCase(setFilter, (state, action: PayloadAction<FilterPayloadType>) => {
+        // console.log("Reducer setFilter called with:", action.payload);
         if (state.filters) {
           state.filters[action.payload.name] = action.payload.value;
         } else {
           state.filters = { [action.payload.name]: action.payload.value };
         }
+        // console.log("Updated filters:", state.filters);
       })
       .addCase(clearFilter, (state) => {
+        // console.log("Reducer clearFilter called");
         state.filters = null;
       });
   }
