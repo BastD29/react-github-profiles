@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import style from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import SearchInput from "../SearchInput/SearchInput";
+import style from "./Header.module.scss";
 
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
+  const { filters } = useSelector((state: RootStateType) => state.filter);
+  console.log("filters:", filters);
 
   return (
     <header className={style["header"]}>
@@ -18,7 +20,10 @@ const Header: FC = () => {
           <h2>Favorites ({favorites?.length})</h2>
         </Link>
       </nav>
-      <SearchInput />
+      <div className={style["header__search"]}>
+        {filters && filters.q && <p>Search: {filters.q}</p>}
+        <SearchInput />
+      </div>
     </header>
   );
 };
