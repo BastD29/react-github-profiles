@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
+import SearchInput from "../SearchInput/SearchInput";
 
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
@@ -17,6 +18,7 @@ const Header: FC = () => {
           <h2>Favorites ({favorites?.length})</h2>
         </Link>
       </nav>
+      <SearchInput />
     </header>
   );
 };

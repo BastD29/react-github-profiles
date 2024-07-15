@@ -20,17 +20,18 @@ export const SAGA_FLOW_NAME = {
   GET_GITHUB_PROFILES: "GET_GITHUB_PROFILES",
 };
 
-const search = {
-  q: "aaa",
-};
+// const search = {
+//   q: "bbb",
+// };
 
 function* getGithubProfiles() {
   try {
     yield put(fetchProfilesStart(true));
     // console.log("filters:", filters);
     const filters: FilterType | null = yield select(filterSelectors.getFilters);
-    // const users: GithubProfileType[] = yield call(getUsers, filters || {});
-    const users: GithubProfileType[] = yield call(getUsers, search || {});
+    console.log("filters:", filters);
+    const users: GithubProfileType[] = yield call(getUsers, filters || {});
+    // const users: GithubProfileType[] = yield call(getUsers, search || {});
     console.log("response:", users);
     yield put(fetchProfilesSuccess(users));
   } catch (error) {
