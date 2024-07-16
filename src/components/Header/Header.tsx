@@ -7,7 +7,7 @@ import style from "./Header.module.scss";
 
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
-  const { filters } = useSelector((state: RootStateType) => state.filter);
+  // const { filters } = useSelector((state: RootStateType) => state.filter);
   // console.log("filters:", filters);
 
   // console.log("favorites.length:", favorites?.length);
@@ -22,10 +22,10 @@ const Header: FC = () => {
           <h2>Favorites ({favorites?.length || 0})</h2>
         </Link>
       </nav>
-      <div className={style["header__search"]}>
-        {filters && filters.q && <p>Search: {filters.q}</p>}
-        <SearchInput />
-      </div>
+      {/* <div className={style["header__search"]}> */}
+      {/* {filters && filters.q && <p>Search: {filters.q}</p>} */}
+      <SearchInput />
+      {/* </div> */}
     </header>
   );
 };

@@ -30,7 +30,7 @@ const SearchInput: FC<SearchInputProps> = ({ ...rest }) => {
       name="q"
       placeholder="Search"
       onChange={handleFilter}
-      value={filters?.q}
+      value={filters?.q || ""}
       // autoFocus
       {...rest}
     />
