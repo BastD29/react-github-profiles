@@ -1,11 +1,14 @@
 import { PayloadAction, Reducer, createReducer } from "@reduxjs/toolkit";
-import { PaginationStateType } from "../../models/pagination";
+import {
+  PaginationStateType,
+  TotalPagesPayloadType,
+} from "../../models/pagination";
 import { setCurrentPage, setTotalPages } from "./actions";
 
 const initialState: PaginationStateType = {
   pagination: {
     currentPage: 1,
-    totalPages: 10,
+    totalPages: null,
     limit: 6, // items per page
   },
 };
@@ -17,9 +20,16 @@ export const reducer: Reducer<PaginationStateType> = createReducer(
       .addCase(setCurrentPage, (state, action: PayloadAction<number>) => {
         state.pagination.currentPage = action.payload;
       })
-      .addCase(setTotalPages, (state, action: PayloadAction<number>) => {
-        state.pagination.totalPages = action.payload;
-      });
+      // .addCase(setTotalPages, (state, action: PayloadAction<number>) => {
+      //   state.pagination.totalPages = action.payload;
+      // });
+      .addCase(
+        setTotalPages,
+        (state, action: PayloadAction<TotalPagesPayloadType>) => {
+          const { limit, total_count } = action.payload;
+          state.pagination.totalPages = Math.ceil(total_count / limit);
+        }
+      );
   }
 );
 

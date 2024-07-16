@@ -4,8 +4,13 @@ type PaginationStateType = {
 
 type PaginationType = {
   currentPage: number;
-  totalPages: number;
+  totalPages: number | null;
   limit: number;
 };
 
-export type { PaginationStateType, PaginationType };
+type TotalPagesPayloadType = {
+  total_count: number;
+  limit: number;
+};
+
+export type { PaginationStateType, PaginationType, TotalPagesPayloadType };
