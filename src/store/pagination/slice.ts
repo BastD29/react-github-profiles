@@ -3,8 +3,11 @@ import { PaginationStateType } from "../../models/pagination";
 import { setCurrentPage, setTotalPages } from "./actions";
 
 const initialState: PaginationStateType = {
-  currentPage: 1,
-  totalPages: 10,
+  pagination: {
+    currentPage: 1,
+    totalPages: 10,
+    limit: 6, // items per page
+  },
 };
 
 export const reducer: Reducer<PaginationStateType> = createReducer(
@@ -12,10 +15,15 @@ export const reducer: Reducer<PaginationStateType> = createReducer(
   (builder) => {
     builder
       .addCase(setCurrentPage, (state, action: PayloadAction<number>) => {
-        state.currentPage = action.payload;
+        state.pagination.currentPage = action.payload;
       })
       .addCase(setTotalPages, (state, action: PayloadAction<number>) => {
-        state.totalPages = action.payload;
+        state.pagination.totalPages = action.payload;
       });
   }
 );
+
+const getPagination = ({ pagination }: { pagination: PaginationStateType }) =>
+  pagination.pagination;
+
+export const selectors = { getPagination };

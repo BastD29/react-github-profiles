@@ -1,7 +1,7 @@
 import { FC } from "react";
 import UsersList from "../../components/UsersList/UsersList";
-import style from "./Home.module.scss";
 import Pagination from "../../components/Pagination/Pagination";
+import style from "./Home.module.scss";
 
 const Home: FC = () => {
   return (

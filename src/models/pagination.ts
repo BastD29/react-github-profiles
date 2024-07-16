@@ -1,6 +1,11 @@
 type PaginationStateType = {
-  currentPage: number;
-  totalPages: number;
+  pagination: PaginationType;
 };
 
-export type { PaginationStateType };
+type PaginationType = {
+  currentPage: number;
+  totalPages: number;
+  limit: number;
+};
+
+export type { PaginationStateType, PaginationType };

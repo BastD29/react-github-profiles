@@ -2,7 +2,7 @@
 import {
   githubFlows as _githubFlows,
   githubSagas as _githubSagas,
-} from "./sagas3";
+} from "./sagas4";
 
 const githubSagas = [..._githubSagas];
 const githubFlows = { ..._githubFlows };

@@ -1,14 +1,14 @@
 import { FC } from "react";
-import style from "./Pagination.module.scss";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import { setCurrentPage } from "../../store/pagination/actions";
+import style from "./Pagination.module.scss";
 
 const Pagination: FC = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector(
-    (state: RootStateType) => state.pagination
+    (state: RootStateType) => state.pagination.pagination
   );
 
   const handlePageChange = (page: number) => {

@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, InputHTMLAttributes } from "react";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../store/filter/actions2";
-import { SAGA_FLOW_NAME } from "../../store/github/sagas3";
+import { SAGA_FLOW_NAME } from "../../store/github/sagas4";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import style from "./SearchInput.module.scss";
