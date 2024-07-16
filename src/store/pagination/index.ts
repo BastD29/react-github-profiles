@@ -1,3 +1,3 @@
-import { selectors as paginationSelectors } from "./slice";
+import { selectors as paginationSelectors } from "./slice2";
 
 export { paginationSelectors };

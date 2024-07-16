@@ -6,6 +6,7 @@ type PaginationType = {
   currentPage: number;
   totalPages: number | null;
   limit: number;
+  visiblePages: number[];
 };
 
 type TotalPagesPayloadType = {

@@ -10,7 +10,7 @@ import { filterSelectors } from "../filter";
 import { FilterType } from "../../models/filter";
 import { PaginationType } from "../../models/pagination";
 import { paginationSelectors } from "../pagination";
-import { setCurrentPage } from "../pagination/actions";
+import { setCurrentPage, setTotalPages } from "../pagination/actions";
 import { GithubApiResponseType } from "../../models/service";
 
 export const SAGA_FLOW_NAME = {
@@ -45,6 +45,13 @@ function* getGithubProfiles() {
 
     console.log("total_count:", response.total_count);
     console.log("limit:", pagination.limit);
+
+    yield put(
+      setTotalPages({
+        total_count: response.total_count,
+        limit: pagination.limit,
+      })
+    );
   } catch (error) {
     if (error instanceof Error) {
       yield put(fetchProfilesFailure(error.message));
