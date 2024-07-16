@@ -2,8 +2,8 @@ import { FC, Suspense } from "react";
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 import { Outlet } from "react-router-dom";
-import style from "./Layout.module.scss";
 import Footer from "../Footer/Footer";
+import style from "./Layout.module.scss";
 
 const Layout: FC = () => {
   return (
