@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
@@ -10,9 +10,15 @@ const Pagination: FC = () => {
   const { currentPage, totalPages, visiblePages } = useSelector(
     (state: RootStateType) => state.pagination.pagination
   );
+  const { filters } = useSelector((state: RootStateType) => state.filter);
 
-  console.log("totalPages:", totalPages);
-  console.log("visiblePages:", visiblePages);
+  useEffect(() => {
+    // Reset to page 1 if filters change
+    dispatch(setCurrentPage(1));
+  }, [filters, dispatch]);
+
+  // console.log("totalPages:", totalPages);
+  // console.log("visiblePages:", visiblePages);
 
   if (totalPages === null) {
     return null;
