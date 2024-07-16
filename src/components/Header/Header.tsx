@@ -10,7 +10,7 @@ const Header: FC = () => {
   const { filters } = useSelector((state: RootStateType) => state.filter);
   // console.log("filters:", filters);
 
-  console.log("favorites.length:", favorites?.length);
+  // console.log("favorites.length:", favorites?.length);
 
   return (
     <header className={style["header"]}>

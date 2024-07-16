@@ -9,8 +9,8 @@ const getUsers = async (
   pagination: PaginationType
   // ): Promise<GithubProfileType[]> => {
 ): Promise<GithubApiResponseType> => {
-  console.log("filters:", filters);
-  console.log("pagination:", pagination);
+  // console.log("filters:", filters);
+  // console.log("pagination:", pagination);
 
   try {
     const query = filters.q?.trim() || "type:user";

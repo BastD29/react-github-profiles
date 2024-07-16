@@ -24,7 +24,7 @@ function* getGithubProfiles() {
     const pagination: PaginationType = yield select(
       paginationSelectors.getPagination
     );
-    console.log("pagination:", pagination);
+    // console.log("pagination:", pagination);
 
     // q param being absent gives a 422 error, so we have to give it a default value
     if (filters) {
@@ -43,8 +43,8 @@ function* getGithubProfiles() {
     console.log("response:", response);
     yield put(fetchProfilesSuccess(response.items));
 
-    console.log("total_count:", response.total_count);
-    console.log("limit:", pagination.limit);
+    // console.log("total_count:", response.total_count);
+    // console.log("limit:", pagination.limit);
 
     yield put(
       setTotalPages({
