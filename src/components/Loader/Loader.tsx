@@ -6,7 +6,7 @@ const Loader: FC = () => {
   return (
     <div className={style["loader"]}>
       {[1, 2, 3, 4, 5, 6].map((n) => (
-        <SkeletonUserCard key={n} />
+        <SkeletonUserCard key={n} theme="light" />
       ))}
     </div>
   );
