@@ -11,9 +11,15 @@ const Pagination: FC = () => {
     (state: RootStateType) => state.pagination.pagination
   );
 
+  console.log("totalPages:", totalPages);
+
   const handlePageChange = (page: number) => {
     dispatch(setCurrentPage(page));
   };
+
+  if (totalPages === null) {
+    return null;
+  }
 
   return (
     <div className={style["pagination"]}>

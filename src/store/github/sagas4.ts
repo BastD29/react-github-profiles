@@ -42,6 +42,9 @@ function* getGithubProfiles() {
     );
     console.log("response:", response);
     yield put(fetchProfilesSuccess(response.items));
+
+    console.log("total_count:", response.total_count);
+    console.log("limit:", pagination.limit);
   } catch (error) {
     if (error instanceof Error) {
       yield put(fetchProfilesFailure(error.message));
