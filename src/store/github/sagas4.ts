@@ -1,6 +1,6 @@
 import { call, delay, fork, put, select, takeLatest } from "redux-saga/effects";
 import { GithubProfileType } from "../../models/github";
-import { getUsers } from "../../services/github5";
+import { getUsers } from "../../services/github6";
 import {
   fetchProfilesFailure,
   fetchProfilesStart,
@@ -19,15 +19,20 @@ export const SAGA_FLOW_NAME = {
 function* getGithubProfiles() {
   try {
     yield put(fetchProfilesStart(true));
-    const filters: FilterType | null = yield select(filterSelectors.getFilters);
+    let filters: FilterType | null = yield select(filterSelectors.getFilters);
     const pagination: PaginationType = yield select(
       paginationSelectors.getPagination
     );
     console.log("pagination:", pagination);
 
-    if (filters && filters.q) {
-      yield delay(500); // Debounce the query by 500ms
+    // q param being absent gives a 422 error, so we have to give it a default value
+    if (filters) {
+      filters = { ...filters, q: filters.q?.trim() || "type:user" };
+      if (filters.q !== "type:user") {
+        yield delay(500); // Debounce the query by 500ms if a search query is present
+      }
     }
+
     const users: GithubProfileType[] = yield call(
       getUsers,
       filters || {},
