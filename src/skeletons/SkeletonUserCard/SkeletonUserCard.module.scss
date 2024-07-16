@@ -1,16 +1,13 @@
-.user-card {
-  border: solid 1px black;
+.skeleton-user-card {
+  background-color: pink;
+  width: 455px;
+  height: 150px;
   padding: 24px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 24px;
-
-  &__img {
-    width: 100px;
-    border-radius: 50px;
-  }
 
   &__info {
     display: flex;

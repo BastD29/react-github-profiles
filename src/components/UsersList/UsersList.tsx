@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import { SAGA_FLOW_NAME } from "../../store/github/sagas4";
 import UserCard from "../UserCard/UserCard";
+import Loader from "../Loader/Loader";
 import style from "./UsersList.module.scss";
 
 const UsersList: FC = () => {
@@ -24,7 +25,8 @@ const UsersList: FC = () => {
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
+      {loading && <Loader />}
+      {/* <Loader /> */}
       {error && <p>{error}</p>}
       {!loading && !error && profiles && profiles.length === 0 && (
         <p>No users found.</p>
