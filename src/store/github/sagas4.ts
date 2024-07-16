@@ -10,6 +10,7 @@ import { filterSelectors } from "../filter";
 import { FilterType } from "../../models/filter";
 import { PaginationType } from "../../models/pagination";
 import { paginationSelectors } from "../pagination";
+import { setCurrentPage } from "../pagination/actions";
 
 export const SAGA_FLOW_NAME = {
   GET_GITHUB_PROFILES: "GET_GITHUB_PROFILES",
@@ -47,6 +48,7 @@ function* getGithubProfiles() {
 
 function* watchGetGithubProfile() {
   yield takeLatest(SAGA_FLOW_NAME.GET_GITHUB_PROFILES, getGithubProfiles);
+  yield takeLatest(setCurrentPage.type, getGithubProfiles); // trigger a re-fetch when clicking page button
 }
 
 export const githubSagas = [fork(watchGetGithubProfile)];
