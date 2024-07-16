@@ -1,5 +1,5 @@
 import { call, delay, fork, put, select, takeLatest } from "redux-saga/effects";
-import { GithubProfileType } from "../../models/github";
+// import { GithubProfileType } from "../../models/github";
 import { getUsers } from "../../services/github6";
 import {
   fetchProfilesFailure,
@@ -11,6 +11,7 @@ import { FilterType } from "../../models/filter";
 import { PaginationType } from "../../models/pagination";
 import { paginationSelectors } from "../pagination";
 import { setCurrentPage } from "../pagination/actions";
+import { GithubApiResponseType } from "../../models/service";
 
 export const SAGA_FLOW_NAME = {
   GET_GITHUB_PROFILES: "GET_GITHUB_PROFILES",
@@ -33,13 +34,14 @@ function* getGithubProfiles() {
       }
     }
 
-    const users: GithubProfileType[] = yield call(
+    // const response: GithubProfileType[] = yield call(
+    const response: GithubApiResponseType = yield call(
       getUsers,
       filters || {},
       pagination
     );
-    console.log("response:", users);
-    yield put(fetchProfilesSuccess(users));
+    console.log("response:", response);
+    yield put(fetchProfilesSuccess(response.items));
   } catch (error) {
     if (error instanceof Error) {
       yield put(fetchProfilesFailure(error.message));
