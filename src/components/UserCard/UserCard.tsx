@@ -2,7 +2,7 @@ import { FC } from "react";
 import { GithubProfileType } from "../../models/github";
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../store/favorites/actions";
-import style from "./UserCard.module.scss";
+import style from "./UserCard2.module.scss";
 
 type UserCardProps = {
   profile: GithubProfileType;

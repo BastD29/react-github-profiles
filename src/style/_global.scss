@@ -10,6 +10,7 @@
 html,
 body {
   font-family: typography.$font-family;
+  font-size: typography.$font-size;
   background-color: map-get(variables.$colors, "alice-blue");
 }
 

@@ -1,0 +1,38 @@
+@use "../../style/variables" as variables;
+@use "../../style/typography" as typography;
+
+.user-card {
+  padding: 24px;
+  background-color: map-get(variables.$colors, "white-2");
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+
+  &__img {
+    width: 100px;
+    border-radius: 50px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    a {
+      color: map-get(variables.$colors, "slate-gray");
+      font-size: typography.$font-size * 0.75;
+    }
+
+    button {
+      // background-color: transparent;
+      background-color: map-get(variables.$colors, "alice-blue");
+      padding: 0 10px;
+      border: none;
+      font-family: typography.$font-family;
+    }
+  }
+}

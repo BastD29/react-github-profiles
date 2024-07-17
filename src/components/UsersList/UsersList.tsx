@@ -5,7 +5,7 @@ import { RootStateType } from "../../store";
 import { SAGA_FLOW_NAME } from "../../store/github/sagas4";
 import UserCard from "../UserCard/UserCard";
 import Loader from "../Loader/Loader";
-import style from "./UsersList.module.scss";
+import style from "./UsersList2.module.scss";
 
 const UsersList: FC = () => {
   const dispatch = useDispatch();
