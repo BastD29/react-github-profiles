@@ -37,12 +37,10 @@ const UserCard: FC<UserCardProps> = ({ profile, isFavorite }) => {
           Github profile
         </a>
         {isFavorite ? (
-          // <button onClick={handleRemoveFavorite}>Remove from favorites</button>
           <button onClick={handleRemoveFavorite}>
             <BlackFavoriteIcon />
           </button>
         ) : (
-          // <button onClick={handleAddFavorite}>Add to favorites</button>
           <button onClick={handleAddFavorite}>
             <BlankFavoriteIcon />
           </button>

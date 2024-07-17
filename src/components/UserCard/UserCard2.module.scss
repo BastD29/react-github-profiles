@@ -22,17 +22,15 @@
     flex-direction: column;
     gap: 5px;
 
+    // ensure the text within the <h3>{login}</h3> element does not overflow out of the card in mobile display
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     a {
       color: map-get(variables.$colors, "slate-gray");
       font-size: typography.$font-size * 0.75;
     }
-
-    // button {
-    //   background-color: map-get(variables.$colors, "alice-blue");
-    //   padding: 0 10px;
-    //   border: none;
-    //   font-family: typography.$font-family;
-    // }
 
     button {
       width: fit-content;
