@@ -2,7 +2,9 @@ import { FC } from "react";
 import { GithubProfileType } from "../../models/github";
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../store/favorites/actions";
+import BlankFavoriteIcon from "../Icons/BlankFavoriteIcon";
 import style from "./UserCard2.module.scss";
+import BlackFavoriteIcon from "../Icons/BlackFavoriteIcon";
 
 type UserCardProps = {
   profile: GithubProfileType;
@@ -34,11 +36,16 @@ const UserCard: FC<UserCardProps> = ({ profile, isFavorite }) => {
         <a href={html_url} target="_blank" rel="noopener noreferrer">
           Github profile
         </a>
-        {/* <button onClick={handleAddFavorite}>Add to favorites</button> */}
         {isFavorite ? (
-          <button onClick={handleRemoveFavorite}>Remove from favorites</button>
+          // <button onClick={handleRemoveFavorite}>Remove from favorites</button>
+          <button onClick={handleRemoveFavorite}>
+            <BlackFavoriteIcon />
+          </button>
         ) : (
-          <button onClick={handleAddFavorite}>Add to favorites</button>
+          // <button onClick={handleAddFavorite}>Add to favorites</button>
+          <button onClick={handleAddFavorite}>
+            <BlankFavoriteIcon />
+          </button>
         )}
       </div>
     </div>

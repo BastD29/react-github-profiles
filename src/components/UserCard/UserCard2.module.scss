@@ -27,12 +27,17 @@
       font-size: typography.$font-size * 0.75;
     }
 
+    // button {
+    //   background-color: map-get(variables.$colors, "alice-blue");
+    //   padding: 0 10px;
+    //   border: none;
+    //   font-family: typography.$font-family;
+    // }
+
     button {
-      // background-color: transparent;
-      background-color: map-get(variables.$colors, "alice-blue");
-      padding: 0 10px;
+      width: fit-content;
       border: none;
-      font-family: typography.$font-family;
+      background: none;
     }
   }
 }
