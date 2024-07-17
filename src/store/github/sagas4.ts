@@ -18,6 +18,7 @@ export const SAGA_FLOW_NAME = {
 };
 
 function* getGithubProfiles() {
+  // console.log("getGithubProfiles saga triggered");
   try {
     yield put(fetchProfilesStart(true));
     let filters: FilterType | null = yield select(filterSelectors.getFilters);
@@ -64,7 +65,7 @@ function* getGithubProfiles() {
 }
 
 function* watchGetGithubProfile() {
-  yield takeLatest(SAGA_FLOW_NAME.GET_GITHUB_PROFILES, getGithubProfiles);
+  // yield takeLatest(SAGA_FLOW_NAME.GET_GITHUB_PROFILES, getGithubProfiles);
   yield takeLatest(setCurrentPage.type, getGithubProfiles); // trigger a re-fetch when clicking page button
 }
 

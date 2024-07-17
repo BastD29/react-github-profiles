@@ -4,8 +4,8 @@ import App from "./components/App/App2";
 import { Provider } from "react-redux";
 import { persistor, store } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
-import "./style/index.scss";
 import Loader from "./components/Loader/Loader";
+import "./style/index.scss";
 //
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

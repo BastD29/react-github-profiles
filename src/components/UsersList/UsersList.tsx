@@ -17,6 +17,7 @@ const UsersList: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
 
   useEffect(() => {
+    // console.log("Dispatching GET_GITHUB_PROFILES action");
     dispatch({ type: SAGA_FLOW_NAME.GET_GITHUB_PROFILES });
   }, []);
 

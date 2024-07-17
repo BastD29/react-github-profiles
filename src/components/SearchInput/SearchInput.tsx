@@ -20,6 +20,7 @@ const SearchInput: FC<SearchInputProps> = ({ ...rest }) => {
     // console.log("value:", value);
 
     dispatch(setFilter({ name, value }));
+    // console.log("Dispatching GET_GITHUB_PROFILES action");
     dispatch({ type: SAGA_FLOW_NAME.GET_GITHUB_PROFILES }); // re-fetch data after filters have been set
   };
 

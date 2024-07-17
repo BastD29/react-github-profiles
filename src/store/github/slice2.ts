@@ -23,6 +23,8 @@ export const reducer: Reducer<GithubInitialStateType> = createReducer(
       .addCase(
         fetchProfilesSuccess,
         (state, action: PayloadAction<GithubProfileType[]>) => {
+          // console.log("fetchProfilesSuccess actioned");
+
           state.loading = false;
           state.profiles = action.payload;
         }
