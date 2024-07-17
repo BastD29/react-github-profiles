@@ -7,7 +7,7 @@ const Home: FC = () => {
   return (
     <div className={style["home"]}>
       <UsersList />
-      {/* <Pagination /> */}
+      <Pagination />
     </div>
   );
 };
