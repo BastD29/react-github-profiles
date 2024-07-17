@@ -26,7 +26,8 @@ const UsersList: FC = () => {
 
   return (
     <div>
-      {loading && <Loader />}
+      <Loader />
+      {/* {loading && <Loader />} */}
       {error && <p>{error}</p>}
       {!loading && !error && profiles && profiles.length === 0 && (
         <p>No users found.</p>
