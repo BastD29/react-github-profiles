@@ -1,3 +1,5 @@
+@use "../../style/breakpoints" as breakpoints;
+
 .header {
   padding: 24px;
 
@@ -10,5 +12,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    @include breakpoints.md {
+      gap: 24px;
+    }
+  }
+
+  @include breakpoints.md {
+    padding: 40px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
