@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import { setCurrentPage } from "../../store/pagination/actions";
-import style from "./Pagination.module.scss";
+import style from "./Pagination2.module.scss";
 
 const Pagination: FC = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const Pagination: FC = () => {
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        Previous
+        {"<<"}
       </button>
       <button onClick={handlePreviousSet} disabled={visiblePages[0] === 1}>
         ...
@@ -73,7 +73,7 @@ const Pagination: FC = () => {
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        Next
+        {">>"}
       </button>
     </div>
   );
