@@ -1,0 +1,27 @@
+@use "../../style/variables" as variables;
+@use "../../style/typography" as typography;
+
+.search-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  height: 60px;
+  border-radius: 15px;
+  background-color: map-get(variables.$colors, "white-2");
+  padding-left: 16px;
+
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 16px 16px 16px 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  input::placeholder {
+    font-family: typography.$font-family;
+  }
+}

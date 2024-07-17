@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
-import SearchInput from "../SearchInput/SearchInput";
-import style from "./Header.module.scss";
+import SearchInput from "../SearchInput/SearchInput2";
+import style from "./Header2.module.scss";
 
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
@@ -19,7 +19,7 @@ const Header: FC = () => {
           <h2>devfinder</h2>
         </Link>
         <Link to="/favorites" className={style["header__link"]}>
-          <h2>Favorites ({favorites?.length || 0})</h2>
+          <h3>Favorites ({favorites?.length || 0})</h3>
         </Link>
       </nav>
       {/* <div className={style["header__search"]}> */}
