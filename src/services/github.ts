@@ -1,21 +1,40 @@
-// import { GITHUB_API_BASE_URL, USERS } from "../constants/endpoints";
-// import { GithubProfileType } from "../models/github";
+import { GITHUB_API_BASE_URL, SEARCH, USERS } from "../constants/endpoints";
+import { FilterType } from "../models/filter";
+import { PaginationType } from "../models/pagination";
+import { GithubApiResponseType } from "../models/service";
 
-// // getUsers without any filter
+const getUsers = async (
+  filters: FilterType,
+  pagination: PaginationType
+): Promise<GithubApiResponseType> => {
+  try {
+    const query = filters.q?.trim() || "type:user";
+    const queryParams = new URLSearchParams({
+      q: query, // ensure that a q parameter is always included in the query string
+      ...filters,
+      page: pagination.currentPage.toString(),
+      per_page: pagination.limit.toString(),
+    }).toString();
+    console.log("queryParams:", queryParams);
 
-// const getUsers = async (): Promise<GithubProfileType[]> => {
-//   try {
-//     const response = await fetch(`${GITHUB_API_BASE_URL}${USERS}`);
-//     if (!response.ok) {
-//       throw new Error("Failed to fetch users");
-//     }
-//     const data: GithubProfileType[] = await response.json();
-//     console.log("data from github service:", data);
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching users:", error);
-//     throw error;
-//   }
-// };
+    const url = `${GITHUB_API_BASE_URL}${SEARCH}${USERS}?${queryParams}`;
 
-// export { getUsers };
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Failed to fetch users");
+    }
+    const data: GithubApiResponseType = await response.json();
+    console.log("data from github service:", data);
+
+    return {
+      total_count: data.total_count,
+      incomplete_results: data.incomplete_results,
+      items: data.items,
+    };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    throw error;
+  }
+};
+
+export { getUsers };

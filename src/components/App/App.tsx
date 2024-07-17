@@ -1,15 +1,19 @@
-// import { FC } from "react";
-// import UsersList from "../UsersList/UsersList";
-// import Header from "../Header/Header";
-// import style from "./App.module.scss";
+import { FC } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "../Layout/Layout";
+import NotFound from "../../pages/NotFound/NotFound";
+import { routes } from "../../routes";
 
-// const App: FC = () => {
-//   return (
-//     <div className={style["app"]}>
-//       <Header />
-//       <UsersList />
-//     </div>
-//   );
-// };
+const App: FC = () => {
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      errorElement: <NotFound />,
+      children: routes,
+    },
+  ]);
 
-// export default App;
+  return <RouterProvider router={router} />;
+};
+
+export default App;

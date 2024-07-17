@@ -6,8 +6,6 @@ type SkeletonElementProps = {
 };
 
 const SkeletonElement: FC<SkeletonElementProps> = ({ type }) => {
-  // const classes = `skeleton ${type}`;
-  // const classes = style["skeleton-element"];
   const classes = `${style["skeleton-element"]} ${style[type]}`;
 
   return <div className={classes}></div>;

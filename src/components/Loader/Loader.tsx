@@ -1,6 +1,6 @@
 import { FC } from "react";
 import SkeletonUserCard from "../../skeletons/SkeletonUserCard/SkeletonUserCard";
-import style from "./Loader2.module.scss";
+import style from "./Loader.module.scss";
 
 const Loader: FC = () => {
   return (

@@ -3,8 +3,8 @@ import { GithubProfileType } from "../../models/github";
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../../store/favorites/actions";
 import BlankFavoriteIcon from "../Icons/BlankFavoriteIcon";
-import style from "./UserCard2.module.scss";
 import BlackFavoriteIcon from "../Icons/BlackFavoriteIcon";
+import style from "./UserCard.module.scss";
 
 type UserCardProps = {
   profile: GithubProfileType;

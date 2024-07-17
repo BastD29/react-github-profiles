@@ -1,7 +1,19 @@
-// .users-list {
-//   padding: 24px;
+@use "../../style/breakpoints" as breakpoints;
 
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   grid-gap: 10px;
-// }
+.users-list {
+  padding: 0 24px 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include breakpoints.md {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
+
+  @include breakpoints.lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

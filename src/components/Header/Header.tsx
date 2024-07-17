@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
-import SearchInput from "../SearchInput/SearchInput2";
-import style from "./Header2.module.scss";
+import SearchInput from "../SearchInput/SearchInput";
+import style from "./Header.module.scss";
 
 const Header: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);

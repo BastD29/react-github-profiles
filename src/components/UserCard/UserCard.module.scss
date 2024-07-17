@@ -1,20 +1,41 @@
-// .user-card {
-//   border: solid 1px black;
-//   padding: 24px;
+@use "../../style/variables" as variables;
+@use "../../style/typography" as typography;
 
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   gap: 24px;
+.user-card {
+  padding: 24px;
+  background-color: map-get(variables.$colors, "white-2");
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
 
-//   &__img {
-//     width: 100px;
-//     border-radius: 50px;
-//   }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
 
-//   &__info {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 5px;
-//   }
-// }
+  &__img {
+    width: 100px;
+    border-radius: 50px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    // ensure the text within the <h3>{login}</h3> element does not overflow out of the card in mobile display
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a {
+      color: map-get(variables.$colors, "slate-gray");
+      font-size: typography.$font-size * 0.75;
+    }
+
+    button {
+      width: fit-content;
+      border: none;
+      background: none;
+    }
+  }
+}

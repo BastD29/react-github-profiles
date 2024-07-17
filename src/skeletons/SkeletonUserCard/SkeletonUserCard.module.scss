@@ -1,6 +1,4 @@
 .skeleton-wrapper {
-  // margin: 20px auto;
-  // padding: 10px 15px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -20,7 +18,6 @@
   // }
 
   .skeleton-user-card {
-    // background-color: #ddd;
     background-color: #f2f2f2;
     width: 455px;
     height: 150px;
@@ -38,21 +35,3 @@
     }
   }
 }
-
-// .skeleton-user-card {
-//   background-color: #ddd;
-//   width: 455px;
-//   height: 150px;
-//   padding: 24px;
-
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   gap: 24px;
-
-//   &__info {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 5px;
-//   }
-// }

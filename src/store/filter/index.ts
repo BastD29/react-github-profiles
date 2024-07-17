@@ -1,3 +1,3 @@
-import { selectors as filterSelectors } from "./slice2";
+import { selectors as filterSelectors } from "./slice";
 
 export { filterSelectors };

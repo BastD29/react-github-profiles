@@ -1,15 +1,28 @@
-// .header {
-//   padding: 24px;
+@use "../../style/breakpoints" as breakpoints;
 
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
+.header {
+  padding: 24px;
 
-//   &__nav {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     gap: 24px;
-//   }
-// }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoints.md {
+      gap: 24px;
+    }
+  }
+
+  @include breakpoints.md {
+    padding: 40px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
