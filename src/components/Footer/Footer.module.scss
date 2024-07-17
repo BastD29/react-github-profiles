@@ -9,6 +9,7 @@
   font-size: typography.$font-size * 0.75;
 
   @include breakpoints.md {
+    padding: 40px;
     font-size: typography.$font-size;
   }
 }

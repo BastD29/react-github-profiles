@@ -11,6 +11,10 @@
   justify-content: center;
   gap: 5px;
 
+  @include breakpoints.md {
+    padding: 40px;
+  }
+
   button {
     border: none;
     width: 18px;

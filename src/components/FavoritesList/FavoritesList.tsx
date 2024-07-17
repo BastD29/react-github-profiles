@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../store";
 import UserCard from "../UserCard/UserCard";
-import style from "./FavoritesList.module.scss";
+import style from "./FavoritesList2.module.scss";
 
 const FavoritesList: FC = () => {
   const { favorites } = useSelector((state: RootStateType) => state.favorites);
