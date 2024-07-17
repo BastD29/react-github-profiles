@@ -1,6 +1,14 @@
-.footer {
-  padding: 24px;
+@use "../../style/typography" as typography;
+@use "../../style/breakpoints" as breakpoints;
 
+.footer {
   display: flex;
   justify-content: center;
+
+  padding: 24px;
+  font-size: typography.$font-size * 0.75;
+
+  @include breakpoints.md {
+    font-size: typography.$font-size;
+  }
 }
